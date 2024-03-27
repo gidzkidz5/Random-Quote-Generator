@@ -2,32 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.bg-dark {
+  background-color: #202733;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.bg-card {
+  background-color: #313A48;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.bg-neon {
+  background-color: #53FFAA;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.font-cyan {
+  color: #CEE3E9;
 }
+
+.font-neon {
+  color: #53FFAA;
+}
+
+.card-header {
+  font-size: 13px;
+  letter-spacing: 4.1px;
+}
+
+.card-text {
+  font-size: 1.75rem;
+  letter-spacing: -0.3px;
+  font-weight: 700;
+}
+
