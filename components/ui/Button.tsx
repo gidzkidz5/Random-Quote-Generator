@@ -10,6 +10,7 @@ export default function Button({ onClick, disabled }: { onClick: any, disabled: 
         disabled={disabled}
         whileHover={{ scale: 1.2, rotate: 90 }}
         whileTap={{scale: 0.8, rotate:-360}}
+        aria-label="randomise"
       >
         <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
           <path

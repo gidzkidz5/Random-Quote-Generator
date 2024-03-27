@@ -28,7 +28,7 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full mx-4 bg-card md:mx-auto md:max-w-[600px] md:px-12 md:pt-12 md:pb-[72px] md:max-h-96 px-6 pt-10 pb-16 rounded-2xl relative">
+    <main className="w-full mx-4 bg-card md:mx-auto md:max-w-[600px] md:px-12 md:pt-12 md:pb-[72px] md:max-h-96 px-6 pt-10 pb-16 rounded-2xl relative" role="main">
       <motion.p
         className="font-neon uppercase font-bold card-header text-center mb-6"
         initial={{ scale: 0 }}
@@ -74,6 +74,6 @@ export default function Home() {
         </svg>
       </div>
       <Button onClick={getNewQuote} disabled={!isVisible} />
-    </div>
+    </main>
   );
 }
