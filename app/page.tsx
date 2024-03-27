@@ -10,9 +10,11 @@ export default function Home() {
   and taking action."`,
   });
   const [isVisible, setIsVisible] = useState(true);
+  const [disabled, setDisabled] = useState(false);
 
   const getNewQuote = async () => {
     try {
+      setDisabled(true);
       setIsVisible(false);
       let response = await fetch("https://api.adviceslip.com/advice");
       let data = await response.json();
@@ -21,18 +23,22 @@ export default function Home() {
       console.log(error);
     } finally {
       setIsVisible(true);
+      setDisabled(false);
     }
   };
 
   return (
     <div className="w-full mx-4 bg-card md:mx-auto md:max-w-[600px] md:px-12 md:pt-12 md:pb-[72px] md:max-h-96 px-6 pt-10 pb-16 rounded-2xl relative">
-      <motion.p className="font-neon uppercase font-bold card-header text-center mb-6" initial={{ scale: 0 }}
-              animate={{ scale: 1 }}>
+      <motion.p
+        className="font-neon uppercase font-bold card-header text-center mb-6"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+      >
         Advice #{quote.id}
       </motion.p>
       <div className="min-h-12 mb-6 md:mb-6">
-        <AnimatePresence>
-          {isVisible && (
+        {isVisible && (
+          <AnimatePresence>
             <motion.h2
               className="card-text font-cyan text-center "
               key={quote.id}
@@ -42,8 +48,8 @@ export default function Home() {
             >
               {quote.advice}
             </motion.h2>
-          )}
-        </AnimatePresence>
+          </AnimatePresence>
+        )}
       </div>
       <div className="sm:flex justify-center hidden">
         <svg width="444" height="16" xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +73,7 @@ export default function Home() {
           </g>
         </svg>
       </div>
-      <Button onClick={getNewQuote} />
+      <Button onClick={getNewQuote} disabled={!isVisible} />
     </div>
   );
 }
